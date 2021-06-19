@@ -10,7 +10,7 @@
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
 	},
 	"repository": {},
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"dependencies": {
 		"@pqina/flip": "^1.7.7",
 		"@remotion/bundler": "^2.0.0",

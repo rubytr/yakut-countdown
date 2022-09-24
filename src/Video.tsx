@@ -1,15 +1,13 @@
-import {Composition} from 'remotion';
-import {YakutIntro} from './YakutIntro';
-import {Countdown} from './YakutIntro/Countdown';
-import {Logo} from './YakutIntro/Logo';
-import {Title} from './YakutIntro/Title';
+import {registerRoot, Composition} from 'remotion';
+import {Yakut} from './Yakut';
+import {Logo} from './Yakut/Logo';
 
-export const RemotionVideo: React.FC = () => {
+export const Video: React.FC = () => {
 	return (
 		<>
 			<Composition
-				id="YakutIntro"
-				component={YakutIntro}
+				id="Video"
+				component={Yakut}
 				durationInFrames={900}
 				fps={30}
 				width={1920}
@@ -27,26 +25,6 @@ export const RemotionVideo: React.FC = () => {
 				fps={30}
 				width={1920}
 				height={1080}
-			/>
-			<Composition
-				id="Countdown"
-				component={Countdown}
-				durationInFrames={200}
-				fps={30}
-				width={1920}
-				height={1080}
-			/>
-			<Composition
-				id="Title"
-				component={Title}
-				durationInFrames={100}
-				fps={30}
-				width={1920}
-				height={1080}
-				defaultProps={{
-					titleText: 'Welcome to Remotion',
-					titleColor: 'black',
-				}}
 			/>
 		</>
 	);

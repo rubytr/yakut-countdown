@@ -1,9 +1,9 @@
 import {interpolate, Sequence, Audio, useCurrentFrame, useVideoConfig} from 'remotion';
-import {Logo} from './YakutIntro/Logo';
-import {Title} from './YakutIntro/Title';
+import {Logo} from './Yakut/Logo';
+import {Title} from './Yakut/Title';
 import audio from './break-the-road.mp3';
 
-export const YakutIntro: React.FC<{
+export const Yakut: React.FC<{
 	titleText: string;
 	titleColor: string;
   backgroundColor: string;
@@ -27,25 +27,25 @@ export const YakutIntro: React.FC<{
   for (let index = 0; index < videoConfig.durationInFrames / 120; index++) {
     console.log(index);
     sequences.push(
-      <Sequence from={index * 120} durationInFrames={120}>
-        <Sequence from={0} durationInFrames={Infinity}>
-          <Logo transitionStart={10}/>
-        </Sequence>
-        <Sequence from={transitionStart + 10} durationInFrames={Infinity}>
-          <Title titleText={titleText} titleColor={titleColor} />
-        </Sequence>
-      </Sequence>
+	<Sequence from={index * 120} durationInFrames={120}>
+		<Sequence from={0} >
+			<Logo transitionStart={10}/>
+		</Sequence>
+		<Sequence from={transitionStart + 10} >
+			<Title titleText={titleText} titleColor={titleColor} />
+		</Sequence>
+	</Sequence>
     )
   }
 
 	return (
 		<div style={{flex: 1, backgroundColor}}>
 			<div style={{opacity}}>
-        {sequences}
-        <Audio
-          src={audio}
-          startFrom={0} // if composition is 30fps, then it will start at 2s
-          endAt={Infinity} // if composition is 30fps, then it will end at 4s
+				{sequences}
+				<Audio
+					src={audio}
+					startFrom={0} // if composition is 30fps, then it will start at 2s
+					endAt={Infinity} // if composition is 30fps, then it will end at 4s
         />
 			</div>
 		</div>
